@@ -1,4 +1,5 @@
 package com.LickingHeights;
+
 import java.util.Scanner;
 
 public class Main {
@@ -44,30 +45,35 @@ public class Main {
 
     }
 
-    public static String choices(String choice, String rock, String paper, String scissors){
+    public static String choices(String choice, String rock, String paper, String scissors) {
 
-    switch (choice){
+        switch (choice) {
 
-        case rock:
-            System.out.print("ROCK");
+            case rock:
+                System.out.print("ROCK");
 
+            case paper:
+                System.out.println("PAPER");
+
+            case scissors:
+                System.out.println("SCISSORS");
+
+            default:
+                System.out.println("Invalid input try again");
+
+
+        return choice;
+        }
+
+        }
+
+    public static String results() {
 
 
     }
 
 
-
-    }
-
-    public static String results(){
-
-
-    }
-
-
-
-    public static int calculations(){
-
+    public static int calculations() {
 
 
     }
