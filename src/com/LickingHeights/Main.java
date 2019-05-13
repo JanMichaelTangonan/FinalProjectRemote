@@ -6,55 +6,83 @@ public class Main {
 
     public static void main(String[] args) {
         // Variables for choices (Player and Computer)
-        int input; // For the input of the user
+        int input; // The input of the user for the game
+        int gameRestart;//The input of the user depending on if they want to start the game or not
         int choiceOfComputer; // For the randomly generated choice of the user
         choiceOfComputer = (int) (Math.random() * 3);
-        int ROCK = 1;
-        int PAPER = 2;
-        int SCISSORS = 3;
+        int ROCK = 0;
+        int PAPER = 1;
+        int SCISSORS = 2;
 
+        String[] thePossibleChoices = {"Rock", "Paper", "Scissors"}; // Test for trying out arrays
 
         // Variables for Results
-        boolean playerWinOrLose=true;
         int playerScore = 0;
         int computerScore = 0;
-
-        //Restarts the game
-        boolean restart = true;
-
+        int playerWinOrLose=playerScore=5;
+        boolean win = true;
 
         //Converts the chosen number to the "piece" that is chosen
-        //Whole game
-        Scanner choice = new Scanner(System.in);
-        System.out.println("Rock, Paper, Scissors, what is your choice? (1 = Rock, 2 = Paper, 3 = Scissors)");
-        input = choice.nextInt();
 
 
-        // Results
-        System.out.println("You have chosen " + input);
-        System.out.println("The computer has chosen " + choiceOfComputer);
+        boolean continueGame = true;
+
+        while(playerScore!=5 || computerScore!=5) {
+            //Whole game
+            Scanner choice = new Scanner(System.in);
+            System.out.println("Rock, Paper, Scissors, what is your choice? (1 = Rock, 2 = Paper, 3 = Scissors)");
+            input = choice.nextInt();
 
 
-        results(playerWinOrLose,input,choiceOfComputer,playerScore,computerScore);
+            // Results
+            System.out.println("You have chosen " + input);
+            System.out.println("The computer has chosen " + choiceOfComputer);
 
-        if (playerWinOrLose==true);{
 
-        playerScore++;
+            results(playerWinOrLose, input, choiceOfComputer, playerScore, computerScore);
+
+            if (playerScore == 5) {
+
+                System.out.println("Congratulations, you won the game!");
+
+            } else if (computerScore == 5) {
+
+                System.out.println("You lost, Better luck next time!");
+
+            }
+
+            continueGame=true;
+
+
+
+            //Restarts the game
+
+            Scanner gameInput = new Scanner(System.in);
+            gameRestart = gameInput.nextInt();
+            System.out.println("Would you like to play again? \n " + "1 = Yes \n " +" 2 = No");
+
+            if (gameRestart == 1){
+
+
+                System.out.println("Go get that computer tiger! ");
+
+            }
+
+            else if(gameRestart==2){
+
+                System.out.println("Thanks for Playing! ");
+                break;
+
+            }
+
+
+
         }
-        else if (playerWinOrLose==false){
-
-        computerScore++;
-        }
-
-        results(playerWinOrLose,input,choiceOfComputer,playerScore,computerScore);
-
-
 
 
 
 
         //Test code here
-        String[] thePossibleChoices = {"Rock", "Paper", "Scissors"}; // Test for trying out arrays
 
         /*if(input!=choiceOfComputer){
 
@@ -70,7 +98,22 @@ public class Main {
 
     }
 
-    public static String choices(int choice, int rock, int paper, int scissors) {
+    /*public static String[] choicesInNumbers(String[] choices){
+
+    for(int rock = 0, paper=1, scissors =2){
+
+
+
+    }
+
+
+    }*/
+
+
+
+
+
+    /* public static String choices(int choice, int rock, int paper, int scissors) {
 
         switch (choice) {
 
@@ -90,7 +133,7 @@ public class Main {
         return String.valueOf(choice);
         }
 
-        }
+        }*/
 
     public static String results(int outcome, int input, int choiceOfComputer, int playerScore, int computerScore) {
 
@@ -159,11 +202,6 @@ public class Main {
         return String.valueOf(outcome);
     }
 
-
-    public static int calculations() {
-
-
-    }
 
 
 }
