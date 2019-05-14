@@ -9,37 +9,40 @@ public class Main {
         int input; // The input of the user for the game
         int gameRestart;//The input of the user depending on if they want to start the game or not
         int choiceOfComputer; // For the randomly generated choice of the user
-        choiceOfComputer = (int) (Math.random() * 3);
-        int ROCK = 0;
-        int PAPER = 1;
-        int SCISSORS = 2;
+        int firstChoice = 0;
+        int secondChoice = 2;
+        choiceOfComputer = (int) (Math.random() * (secondChoice - firstChoice) + 1) + firstChoice;
 
-        String[] thePossibleChoices = {"Rock", "Paper", "Scissors"}; // Test for trying out arrays
+        String[] thePossibleChoices = {"Rock", "Paper", "Scissors"};
 
         // Variables for Results
-        int playerScore = 0;
+        int playerScore = 0 ;
         int computerScore = 0;
-        int playerWinOrLose=playerScore=5;
+        int playerWinOrLose;
         boolean win = true;
 
-        //Converts the chosen number to the "piece" that is chosen
 
-
-        boolean continueGame = true;
-
-        while(playerScore!=5 || computerScore!=5) {
-            //Whole game
+        // Whole game
+        do{
             Scanner choice = new Scanner(System.in);
             System.out.println("Rock, Paper, Scissors, what is your choice? (1 = Rock, 2 = Paper, 3 = Scissors)");
             input = choice.nextInt();
 
 
-            // Results
+            // Round Results
             System.out.println("You have chosen " + input);
             System.out.println("The computer has chosen " + choiceOfComputer);
 
 
-            results(playerWinOrLose, input, choiceOfComputer, playerScore, computerScore);
+
+        }while(playerScore!=5 || computerScore!=5);
+
+
+        // Final result
+        results(playerWinOrLose, input, choiceOfComputer, playerScore, computerScore);
+
+        System.out.println(playerWinOrLose);
+
 
             if (playerScore == 5) {
 
@@ -51,13 +54,12 @@ public class Main {
 
             }
 
-            continueGame=true;
 
 
 
             //Restarts the game
 
-            Scanner gameInput = new Scanner(System.in);
+            do{Scanner gameInput = new Scanner(System.in);
             gameRestart = gameInput.nextInt();
             System.out.println("Would you like to play again? \n " + "1 = Yes \n " +" 2 = No");
 
@@ -74,10 +76,11 @@ public class Main {
                 break;
 
             }
+            }while(playerScore==5 || computerScore==5);
 
 
 
-        }
+
 
 
 
