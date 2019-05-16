@@ -1,5 +1,6 @@
 package com.LickingHeights;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
 
@@ -16,16 +17,23 @@ public class Main {
         // Variables for Results
         int playerScore = 0; // The score of the player/user
         int computerScore = 0; // The score of the computer
-        int playerWinOrLose = 0; // *Supposedly "outcome" of the round must find this for the game to work
+        //int playerWinOrLose = 0; // *Supposedly "outcome" of the round must find this for the game to work(This piece of code may be useless...if it is delete it)
         boolean coreGameLoop = true;
 
 
+         // Computer choice
+         String choiceComputer [] = new String [3];
+         choiceComputer[0] = "Rock";
+         choiceComputer[1] = "Paper";
+         choiceComputer[2] = "Scissors";
 
-
+        
+        
+        
         // Core game
         while (coreGameLoop) {
             do {
-                choiceOfComputer = (int) (Math.random() * 3);
+                choiceOfComputer = new Random().nextInt(choiceComputer.length);
 
                 Scanner choice = new Scanner(System.in);
                 System.out.println("Rock, Paper, Scissors what is your choice? (0 = Rock, 1 = Paper, 2 = Scissors)");
@@ -36,9 +44,64 @@ public class Main {
                 System.out.println("The computer has chosen " + choices(choiceOfComputer));
 
 
-                System.out.println(playerWinOrLose);
+                //results Beginning (Fix when get to school)
+                if (input == choiceOfComputer) {
+
+                        System.out.println("Its a tie! Keep going!");
+                    }
+
+                else if (input == 0 && choiceOfComputer == 1) {
+
+                        System.out.println("Paper beats rock you lose this round!");
+                        computerScore++;
+                        
+                    }
+
+                
+                else if (input == 0 && choiceOfComputer == 1) {
+
+                        System.out.println("Rock beats scissors you win this round!");
+                        playerScore++;
+                        
+                    }
 
 
+                else if (input == 1 && choiceOfComputer == 0) {
+
+                        System.out.println("Paper beats rock you win this round!");
+                        playerScore++;
+                        
+                    }
+
+
+                else if (input == 1 && choiceOfComputer == 2) {
+
+                        System.out.println("Scissors beats paper you lose this round!");
+                        computerScore++;
+                        
+                    }
+
+
+                else if (input == 2 && choiceOfComputer == 0) {
+
+                        System.out.println("Rock beats scissors you lose this round!");
+                        choiceOfComputer++;
+                        
+                    }
+        
+                else if (input == 3 && choiceOfComputer == 2) {
+
+                        System.out.println("Scissors beat paper you win this round!");
+                        playerScore++;
+                        
+                    }
+        
+                
+                //results End (Fix when get to school)
+                
+
+            
+            
             } while (playerScore != 10 || computerScore != 10);
         }
 
@@ -106,7 +169,7 @@ public class Main {
 
         }
 
-        public static String results (int outcome, int input, int choiceOfComputer,int playerScore, int computerScore)
+        /*public static String results (int outcome, int input, int choiceOfComputer,int playerScore, int computerScore)
         {
 
             switch (outcome) {
@@ -172,7 +235,7 @@ public class Main {
 
 
             return String.valueOf(outcome);
-        }
+        }*/
 
 
     }
