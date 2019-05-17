@@ -237,5 +237,10 @@ public class Main {
             return String.valueOf(outcome);
         }*/
 
+// Put method called "PlayerWin" ( For determininng if playerscore gets added if player wins round
+// Put method called "ComputerWin" (For determining if computerscore gets added if computer wins round    
 
-    }
+
+
+
+}
