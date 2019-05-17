@@ -1,4 +1,5 @@
 package com.LickingHeights;
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -13,25 +14,24 @@ public class Main {
         // Testing out the for loops here
 
 
-
         // Variables for Results
         int playerScore = 0; // The score of the player/user
         int computerScore = 0; // The score of the computer
         //int playerWinOrLose = 0; // *Supposedly "outcome" of the round must find this for the game to work(This piece of code may be useless...if it is delete it)
         boolean coreGameLoop = true;
+        boolean playerWinRound=true;
 
 
-         // Computer choice
-         String choiceComputer [] = new String [3];
-         choiceComputer[0] = "Rock";
-         choiceComputer[1] = "Paper";
-         choiceComputer[2] = "Scissors";
+        // Computer choice
+        String choiceComputer[] = new String[3];
+        choiceComputer[0] = "Rock";
+        choiceComputer[1] = "Paper";
+        choiceComputer[2] = "Scissors";
+        String.valueOf(choiceComputer);
 
-        
-        
-        
+
         // Core game
-        while (coreGameLoop) {
+        while (coreGameLoop==true) {
             do {
                 choiceOfComputer = new Random().nextInt(choiceComputer.length);
 
@@ -41,68 +41,38 @@ public class Main {
 
                 // Round Results
                 System.out.println("You have chosen " + choices(input));
-                System.out.println("The computer has chosen " + choices(choiceOfComputer));
+                System.out.println("The computer has chosen " + choiceComputer[choiceOfComputer]);
 
 
-                //results Beginning (Fix when get to school)
+                // Results
+
+                //Player wins round
+                if (playerWinRound==true){
+
+                    System.out.print(playerWins(input, choiceOfComputer, playerScore));
+                    playerScore++;
+
+                }
+               // Computer wins round
+                if(playerWinRound==false){
+
+                System.out.println(computerWins(input,choiceOfComputer,computerScore)) ;
+                computerScore++;
+                }
+
+
+
+                // Results for a tie
                 if (input == choiceOfComputer) {
 
-                        System.out.println("Its a tie! Keep going!");
-                    }
-
-                else if (input == 0 && choiceOfComputer == 1) {
-
-                        System.out.println("Paper beats rock you lose this round!");
-                        computerScore++;
-                        
-                    }
-
-                
-                else if (input == 0 && choiceOfComputer == 1) {
-
-                        System.out.println("Rock beats scissors you win this round!");
-                        playerScore++;
-                        
-                    }
+                    System.out.println("Its a tie! Keep going!");
+                }
 
 
-                else if (input == 1 && choiceOfComputer == 0) {
-
-                        System.out.println("Paper beats rock you win this round!");
-                        playerScore++;
-                        
-                    }
 
 
-                else if (input == 1 && choiceOfComputer == 2) {
 
-                        System.out.println("Scissors beats paper you lose this round!");
-                        computerScore++;
-                        
-                    }
-
-
-                else if (input == 2 && choiceOfComputer == 0) {
-
-                        System.out.println("Rock beats scissors you lose this round!");
-                        choiceOfComputer++;
-                        
-                    }
-        
-                else if (input == 3 && choiceOfComputer == 2) {
-
-                        System.out.println("Scissors beat paper you win this round!");
-                        playerScore++;
-                        
-                    }
-        
-                
-                //results End (Fix when get to school)
-                
-
-            
-            
-            } while (playerScore != 10 || computerScore != 10);
+            }while (playerScore != 10 || computerScore != 10) ;
         }
 
 
@@ -144,103 +114,84 @@ public class Main {
     }
 
 
-        //Test code here
+    //Test code here
 
 
-        public static String choices(int choice){
+    public static String choices(int choice) {
 
-            switch (choice) {
+        switch (choice) {
 
-                case 0:
-                    System.out.println("Rock");
+            case 0:
+                System.out.println("Rock");
+                break;
 
-                case 1:
-                    System.out.println("Paper");
+            case 1:
+                System.out.println("Paper");
+                break;
 
-                case 2:
-                    System.out.println("Scissors");
+            case 2:
+                System.out.println("Scissors");
+                break;
 
-                default:
-                    System.out.println("Invalid input try again");
+            default:
+                System.out.println("Invalid input try again");
 
-
-
-            } return String.valueOf(choice);
 
         }
+        return String.valueOf(choice);
 
-        /*public static String results (int outcome, int input, int choiceOfComputer,int playerScore, int computerScore)
-        {
+    }
 
-            switch (outcome) {
+    public static int playerWins(int input, int choiceOfComputer, int playerScore) {
 
-                case 1:
-                    if (input == choiceOfComputer) {
+        if (input == 0 && choiceOfComputer == 2) {
 
-                        System.out.println("Its a tie! Keep going!");
+            System.out.println("Rock beats scissors you win this round!");
+            playerScore++;
 
-                        break;
-                    }
+        } else if (input == 1 && choiceOfComputer == 0) {
 
-                case 2:
-                    if (input == 1 && choiceOfComputer == 2) {
+            System.out.println("Paper beats rock you win this round!");
+            playerScore++;
 
-                        System.out.println("Paper beats rock you lose this round!");
-                        computerScore++;
-                        break;
-                    }
+        } else if (input == 2 && choiceOfComputer == 1) {
 
-                case 3:
-                    if (input == 1 && choiceOfComputer == 3) {
-
-                        System.out.println("Rock beats scissors you win this round!");
-                        playerScore++;
-                        break;
-                    }
-
-                case 4:
-                    if (input == 2 && choiceOfComputer == 1) {
-
-                        System.out.println("Paper beats rock you win this round!");
-                        playerScore++;
-                        break;
-                    }
-
-                case 5:
-                    if (input == 2 && choiceOfComputer == 3) {
-
-                        System.out.println("Scissors beats paper you lose this round!");
-                        computerScore++;
-                        break;
-                    }
-
-                case 6:
-                    if (input == 3 && choiceOfComputer == 1) {
-
-                        System.out.println("Rock beats scissors you lose this round!");
-                        choiceOfComputer++;
-                        break;
-                    }
-
-                case 7:
-                    if (input == 3 && choiceOfComputer == 2) {
-
-                        System.out.println("Scissors beat paper you win this round!");
-                        playerScore++;
-                        break;
-                    }
-
+            System.out.println("Scissors beat paper you win this round!");
+            playerScore++;
 
             }
 
+        return playerScore;
 
-            return String.valueOf(outcome);
-        }*/
-
-// Put method called "PlayerWin" ( For determininng if playerscore gets added if player wins round
-// Put method called "ComputerWin" (For determining if computerscore gets added if computer wins round    
+    }
 
 
+    public static int computerWins(int input, int choiceOfComputer, int computerScore){
+
+         if (input == 0 && choiceOfComputer == 1) {
+
+            System.out.println("Paper beats rock you lose this round!");
+            computerScore++;
+
+
+        } else if (input == 1 && choiceOfComputer == 2) {
+
+            System.out.println("Scissors beats paper you lose this round!");
+            computerScore++;
+
+
+        } else if (input == 2 && choiceOfComputer == 0) {
+
+            System.out.println("Rock beats scissors you lose this round!");
+            computerScore++;
+
+
+        }
+
+
+    return computerScore;
+
+    }
 
 
 }
