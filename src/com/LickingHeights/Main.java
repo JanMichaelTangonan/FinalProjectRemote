@@ -23,11 +23,10 @@ public class Main {
 
 
         // Computer choice
-        String choiceComputer[] = new String[3];
-        choiceComputer[0] = "Rock";
-        choiceComputer[1] = "Paper";
-        choiceComputer[2] = "Scissors";
-        String.valueOf(choiceComputer);
+        String choices[] = new String[3];
+        choices[0] = "Rock";
+        choices[1] = "Paper";
+        choices[2] = "Scissors";
 
 
         // Core game
@@ -40,8 +39,8 @@ public class Main {
                 input = choice.nextInt();
 
                 // Round Results
-                System.out.println("You have chosen " + choices(input));
-                System.out.println("The computer has chosen " + choiceComputer[choiceOfComputer]);
+                System.out.println("You have chosen " + choices[input]);
+                System.out.println("The computer has chosen " + choices[choiceOfComputer]);
 
 
                 // Results
@@ -117,7 +116,7 @@ public class Main {
     //Test code here
 
 
-    public static String choices(int choice) {
+    /*public static String choices(int choice) {
 
         switch (choice) {
 
@@ -140,7 +139,7 @@ public class Main {
         }
         return String.valueOf(choice);
 
-    }
+    }*/
 
     public static int playerWins(int input, int choiceOfComputer, int playerScore) {
 
