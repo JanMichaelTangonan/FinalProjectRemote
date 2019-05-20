@@ -44,20 +44,23 @@ public class Main {
             // Results
 
             //Player wins round
-            playerWins(input, choiceOfComputer, playerScore);
+            playerScore = playerWins(input, choiceOfComputer, playerScore);
 
             // Computer wins round
-
-            computerWins(input, choiceOfComputer, playerScore);
-
-
-            // Results for a tie
+            computerScore = computerWins(input, choiceOfComputer, playerScore);
+            
+             // Results for a tie
             if (input == choiceOfComputer) {
 
                 System.out.println("Its a tie! Keep going!");
             }
 
-
+            
+            // Current scores
+            System.out.println("The current scores are as follows");
+            System.out.println("Your score is " + playerScore + "/10");
+            System.out.println("The computer's score is " + computerScore + "/10");
+            
         } while (playerScore != 10 || computerScore != 10);
 
         //}while (coreGameLoop==true);
