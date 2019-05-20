@@ -87,6 +87,7 @@ public class Main {
             if (gameRestart == 1) {
                 System.out.println("Go get that computer tiger! ");
                 System.out.println("");
+                main(String[]args);//Supposed to repeat whole thing
 
 
             } else if (gameRestart == 2) {
