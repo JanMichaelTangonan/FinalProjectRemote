@@ -40,7 +40,13 @@ public class Main {
             System.out.println("You have chosen " + choices[input]);
             System.out.println("The computer has chosen " + choices[choiceOfComputer]);
 
+            
+             // Results for a tie
+            if (input == choiceOfComputer) {
 
+                System.out.println("Its a tie! Keep going!");
+            }
+            
             // Results
 
             //Player wins round
@@ -48,12 +54,6 @@ public class Main {
 
             // Computer wins round
             computerScore = computerWins(input, choiceOfComputer, playerScore);
-            
-             // Results for a tie
-            if (input == choiceOfComputer) {
-
-                System.out.println("Its a tie! Keep going!");
-            }
 
             
             // Current scores
@@ -87,7 +87,6 @@ public class Main {
             if (gameRestart == 1) {
                 System.out.println("Go get that computer tiger! ");
                 System.out.println("");
-                main(String[]args);//Supposed to repeat whole thing
 
 
             } else if (gameRestart == 2) {
