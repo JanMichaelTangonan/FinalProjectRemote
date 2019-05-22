@@ -37,7 +37,7 @@ public class Main {
             System.out.println("The computer has chosen " + choices[choiceOfComputer]);
 
 
-             // Results for a tie
+            // Results for a tie
             if (input == choiceOfComputer) {
 
                 System.out.println("Its a tie! Keep going!");
@@ -57,16 +57,15 @@ public class Main {
             System.out.println("The computer's score is " + computerScore + "/10");
             System.out.println("");
 
-            if(playerScore==10 || computerScore==10){
+            // To break the loop of the game
+            if (playerScore == 10 || computerScore == 10) {
 
-            break;
+                break;
 
             }
 
 
-
         } while (playerScore != 10 || computerScore != 10);
-
 
 
         // Final result
@@ -81,10 +80,10 @@ public class Main {
             System.out.println("You lost, Better luck next time!");
             System.out.println("");
         }
-        //
+
         do {
             Scanner gameInput = new Scanner(System.in);
-            System.out.println("Would you like to play again? \n " + "1 = Yes \n " +"2 = No");
+            System.out.println("Would you like to play again? \n " + "1 = Yes \n " + "2 = No");
             gameRestart = gameInput.nextInt();
 
             if (gameRestart == 1) {
@@ -98,12 +97,12 @@ public class Main {
                 break;
             } else if (gameRestart != 1 && gameRestart != 2) {
 
-                System.out.println("You either mistyped the number, or you're just a straight up troll, either way get better at typing! >:(");
+                System.out.println("You either mistyped the number, or you're just a straight up troll, either way get better at type properly!");
+                System.out.println("");
 
             }
 
         } while (playerScore == 10 || computerScore == 10);
-        //
 
 
     }
