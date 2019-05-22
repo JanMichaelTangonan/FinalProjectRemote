@@ -11,9 +11,6 @@ public class Main {
         int gameRestart;//The input of the user depending on if they want to start the game or not
         int choiceOfComputer; // For the randomly generated choice of the user
 
-        // Testing out the for loops here
-
-
         // Variables for Results
         int playerScore = 0; // The score of the player/user
         int computerScore = 0; // The score of the computer
@@ -28,65 +25,72 @@ public class Main {
 
         // Core game
 
-        //do {
         do {
-            choiceOfComputer = new Random().nextInt(choices.length);
+            choiceOfComputer = new Random().nextInt(choices.length);// This is how the computer picks its choice, it is random.
 
             Scanner choice = new Scanner(System.in);
             System.out.println("Rock, Paper, Scissors what is your choice? (0 = Rock, 1 = Paper, 2 = Scissors)");
-            input = choice.nextInt();
+            input = choice.nextInt();// This is where the user gets prompted to enter his/her choice.
 
             // Round Results
             System.out.println("You have chosen " + choices[input]);
             System.out.println("The computer has chosen " + choices[choiceOfComputer]);
 
-            
+
              // Results for a tie
             if (input == choiceOfComputer) {
 
                 System.out.println("Its a tie! Keep going!");
             }
-            
+
             // Results
 
             //Player wins round
             playerScore = playerWins(input, choiceOfComputer, playerScore);
 
             // Computer wins round
-            computerScore = computerWins(input, choiceOfComputer, playerScore);
+            computerScore = computerWins(input, choiceOfComputer, computerScore);
 
-            
             // Current scores
             System.out.println("The current scores are as follows");
             System.out.println("Your score is " + playerScore + "/10");
             System.out.println("The computer's score is " + computerScore + "/10");
-            
+            System.out.println("");
+
+            if(playerScore==10 || computerScore==10){
+
+            break;
+
+            }
+
+
+
         } while (playerScore != 10 || computerScore != 10);
 
-        //}while (coreGameLoop==true);
 
 
         // Final result
 
-
         if (playerScore == 10) {
 
             System.out.println("Congratulations, you won the game!");
+            System.out.println("");
 
         } else if (computerScore == 10) {
 
             System.out.println("You lost, Better luck next time!");
-
+            System.out.println("");
         }
         //
         do {
             Scanner gameInput = new Scanner(System.in);
-            System.out.println("Would you like to play again? \n " + "1 = Yes \n " + "2 = No");
+            System.out.println("Would you like to play again? \n " + "1 = Yes \n " +"2 = No");
             gameRestart = gameInput.nextInt();
 
             if (gameRestart == 1) {
                 System.out.println("Go get that computer tiger! ");
                 System.out.println("");
+                main(null);
 
 
             } else if (gameRestart == 2) {
@@ -94,7 +98,7 @@ public class Main {
                 break;
             } else if (gameRestart != 1 && gameRestart != 2) {
 
-                System.out.println("You need to type either 1 or 2 please try again!");
+                System.out.println("You either mistyped the number, or you're just a straight up troll, either way get better at typing! >:(");
 
             }
 
